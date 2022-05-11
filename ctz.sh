@@ -8,7 +8,12 @@
 timezones=('Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
 separator=' | '
 time_format="%H:%M %Z"
-timestamp=$(date -j $1 +%s)
+
+if [[ "$1" == "now" || -z "$1" ]];then
+    timestamp=$(date +%s)
+else
+    timestamp=$(date -j $1 +%s)
+fi
 
 results=()
 for tz in ${timezones[@]}

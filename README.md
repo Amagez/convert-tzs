@@ -29,6 +29,16 @@ $ ctz 2030
 20:30 VNZ | 21:30 CST | 16:30 MSK
 ```
 
+It also supports only one string `now` or empty agrument will be `now` input.
+
+```
+$ ctz now
+16:50 VNZ | 17:50 CST | 12:50 MSK
+
+$ ctz
+16:51 VNZ | 17:51 CST | 12:51 MSK
+```
+
 ## Visit
 
 Website : https://cuongquach.com/
