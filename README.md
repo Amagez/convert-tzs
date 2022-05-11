@@ -25,7 +25,7 @@ timezones=('Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
 When you execute, please input time as 24 hours standard convention.
 
 ```
-$ ctz.sh 2030
+$ ctz 2030
 20:30 VNZ | 21:30 CST | 16:30 MSK
 ```
 
