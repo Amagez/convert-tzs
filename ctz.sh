@@ -9,16 +9,31 @@ timezones=('Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
 separator=' | '
 time_format="%H:%M %Z"
 
+# Check if `date` GNU or not
+if [[ $(date --version 2> /dev/null | grep -i GNU) ]];then
+    flag_gnu="true"
+else
+    flag_gnu="false"
+fi
+
 if [[ "$1" == "now" || -z "$1" ]];then
     timestamp=$(date +%s)
 else
-    timestamp=$(date -j $1 +%s)
+    if [[ "${flag_gnu}" == "true" ]];then
+        timestamp=$(date --date="$1" +%s)
+    else
+        timestamp=$(date -j "$1" +%s)
+    fi
 fi
 
 results=()
 for tz in ${timezones[@]}
 do
-    convert_tz=$(TZ=$tz date -jf "%s" "$timestamp" +"%H:%M %Z")
+    if [[ "${flag_gnu}" == "true" ]];then
+        convert_tz=$(TZ=$tz date -d "@$timestamp" +"%H:%M %Z")
+    else
+        convert_tz=$(TZ=$tz date -r "$timestamp" +"%H:%M %Z")
+    fi
 
     # Convert Vietnam Timezone naming
     if [[ "$(grep "+07" <<< $convert_tz)" ]];then
