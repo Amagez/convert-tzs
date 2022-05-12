@@ -5,7 +5,7 @@
 # when we intend to perform some actions
 
 # Input your wished timezone here
-timezones=('Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
+timezones=('UTC' 'Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
 separator=' | '
 time_format="%H:%M %Z"
 
