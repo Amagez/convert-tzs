@@ -7,7 +7,6 @@
 # Input your wished timezone here
 timezones=('UTC' 'Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
 separator=' | '
-time_format="%H:%M %Z"
 
 # Check if `date` GNU or not
 if [[ $(date --version 2> /dev/null | grep -i GNU) ]];then
@@ -30,9 +29,9 @@ results=()
 for tz in ${timezones[@]}
 do
     if [[ "${flag_gnu}" == "true" ]];then
-        convert_tz=$(TZ=$tz date -d "@$timestamp" +"%H:%M %Z")
+        convert_tz=$(TZ=$tz date -d "@$timestamp" +"%h %d %H:%M %Z")
     else
-        convert_tz=$(TZ=$tz date -r "$timestamp" +"%H:%M %Z")
+        convert_tz=$(TZ=$tz date -r "$timestamp" +"%h %d %H:%M %Z")
     fi
 
     # Convert Vietnam Timezone naming
@@ -48,3 +47,5 @@ output=${output:${#separator}}
 echo $output
 
 exit 0
+
+
