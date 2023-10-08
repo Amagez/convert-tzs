@@ -5,7 +5,14 @@
 # when we intend to perform some actions
 
 # Input your wished timezone here
-timezones=('UTC' 'Asia/Ho_Chi_Minh' 'Asia/Shanghai' 'Europe/Moscow')
+timezones=(
+    "UTC"
+    "Asia/Ho_Chi_Minh"
+    "Asia/Shanghai" 
+    "Europe/Moscow"
+    "Asia/Tbilisi" #Georgian Standard Time
+)
+
 separator=' | '
 
 # Check if `date` GNU or not
@@ -47,5 +54,3 @@ output=${output:${#separator}}
 echo $output
 
 exit 0
-
-
