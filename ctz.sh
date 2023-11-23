@@ -10,6 +10,7 @@ timezones=(
     "Asia/Ho_Chi_Minh"
     "Asia/Shanghai" 
     "Europe/Moscow"
+    "Asia/Kolkata" # India
     "Asia/Tbilisi" #Georgian Standard Time
 )
 
